@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/linkpoolio/asset-price-cl-ea/app"
-	"github.com/linkpoolio/bridges"
+	"github.com/jsd/asset-price-cl-ea/app"
+	"github.com/jsd/bridges"
 )
 
 func main() {
