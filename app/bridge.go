@@ -1,7 +1,7 @@
 package app
 
 import (
-	"github.com/linkpoolio/bridges"
+	"github.com/jsd/bridges"
 	"net/http"
 )
 
