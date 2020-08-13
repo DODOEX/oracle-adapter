@@ -3,7 +3,7 @@ package app
 import (
 	"errors"
 	"fmt"
-	"github.com/linkpoolio/asset-price-cl-ea/app/exchange"
+	"github.com/jsd/asset-price-cl-ea/app/exchange"
 	log "github.com/sirupsen/logrus"
 	"gopkg.in/guregu/null.v3"
 	"strconv"
