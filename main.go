@@ -1,13 +1,13 @@
 package main
 
 import (
-	"github.com/jsd/asset-price-cl-ea/app"
-	"github.com/jsd/bridges"
+	"github.com/Dominator008/asset-price-oracle-adapter/adapter"
+	"github.com/Dominator008/asset-price-oracle-adapter/bridge"
 )
 
 func main() {
-	c := app.NewConfig()
-	app.StartPairsTicker(c)
+	c := adapter.NewConfig()
+	adapter.StartPairsTicker(c)
 
-	bridges.NewServer(&app.AssetPrice{}).Start(c.Port)
+	bridge.NewServer(&adapter.AssetPrice{}).Start(c.Port)
 }

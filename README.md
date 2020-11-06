@@ -1,7 +1,7 @@
-# Asset Price External Adaptor ![Build](https://github.com/linkpoolio/asset-price-cl-ea/workflows/Build/badge.svg) [![codecov](https://codecov.io/gh/linkpoolio/asset-price-cl-ea/branch/master/graph/badge.svg)](https://codecov.io/gh/linkpoolio/asset-price-cl-ea)
-External Adaptor for Chainlink which aggregates prices of crypto assets from multiple exchanges based on a weighted average of their volume.
+# Asset Price External Adaptor
 
-This adaptor is built using the bridges framework: https://github.com/linkpoolio/bridges
+External Adaptor for Chainlink which aggregates prices of crypto assets from multiple exchanges
+based on a weighted average of their volume.
 
 ### Currently Supported Exchanges:
 
@@ -19,16 +19,19 @@ This adaptor is built using the bridges framework: https://github.com/linkpoolio
 
 ### Setup Instructions
 #### Local Install
+
 Make sure [Golang](https://golang.org/pkg/) is installed.
 
 Build:
-```
+
+```sh
 make build
 ```
 
 Then run the adaptor:
-```
-./asset-price-cl-ea -p <port> -t <tickerInterval>
+
+```sh
+./asset-price-oracle-adapter -p <port> -t <tickerInterval>
 ```
 
 ##### Arguments
@@ -40,45 +43,25 @@ Then run the adaptor:
 
 #### Docker
 To run the container:
-```
-docker run -it -p 8080:8080 -e PORT=8080 linkpoolio/asset-price-cl-ea
+
+```sh
+docker run -it -p 8080:8080 -e PORT=8080 Dominator008/asset-price-oracle-adapter
 ```
 
 Container also supports passing in CLI arguments.
-
-#### AWS Lambda
-1. Build the executable:
-    ```bash
-    GO111MODULE=on go build -o asset-price
-    ```
-2. Add the file to a ZIP archive:
-    ```bash
-    zip asset-price.zip ./asset-price
-    ```
-3. Upload the the zip file into AWS and then use `asset-price` as the
-handler.
-4. Set the `LAMBDA` environment variable to `true` in AWS for
-the adaptor to be compatible with Lambda.
-
-#### GCP Functions
-1. Change into the app directory:
-    ```bash
-    cd app
-    ```
-2. Deploy into GCP
-    ```bash
-    gcloud functions deploy asset-price --runtime go111 --entry-point Handler --trigger-http
-    ```
 
 ### Usage
 
 To call the API, you need to send a POST request to `http://localhost:<port>/price` with the request body being of the ChainLink `RunResult` type.
 
 For example:
-```
+
+```sh
 curl -X POST -H 'Content-Type: application/json' -d '{ "jobRunId": "1234", "data": { "base": "BTC", "quote": "USD" }}' http://localhost:8080/price
 ```
+
 Should return something similar to:
+
 ```json
 {
     "jobRunId": "1234",
@@ -105,9 +88,11 @@ Should return something similar to:
 ```
 
 Or:
-```
+
+```sh
 curl -X POST -H 'Content-Type: application/json' -d '{ "jobRunId": "1234", "data": { "base": "LINK", "quote": "ETH" }}' http://localhost:8080/price
 ```
+
 ```json
 {
     "jobRunId": "1234",
@@ -140,6 +125,7 @@ https://docs.chain.link/docs/node-operators
 ### Solidity Usage
 
 To use this adaptor on-chain, you can create the following Chainlink request:
+
 ```
 Chainlink.Request memory req = buildChainlinkRequest(jobId, this, this.fulfill.selector);
 req.add("base", "LINK");
@@ -149,6 +135,3 @@ req.addInt("times", 100000000);
 ```
 
 Allowing you to change `base` and `quote` to any trading pair.
-
-### Contribution
-We welcome any contributors. The more exchanges supported, the better. Feel free to raise any PR's or issues.

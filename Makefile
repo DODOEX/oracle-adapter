@@ -1,16 +1,13 @@
 .DEFAULT_GOAL := build
 .PHONY: build install docker dockerpush
 
-REPO=linkpoolio/asset-price-cl-ea
-LDFLAGS=-ldflags "-X github.com/linkpoolio/asset-price-cl-ea/store.Sha=`git rev-parse HEAD`"
+REPO=Dominator008/asset-price-oracle-adapter
+LDFLAGS=-ldflags "-X github.com/Dominator008/asset-price-oracle-adapter/store.Sha=`git rev-parse HEAD`"
 
-gomod:
-    export GO111MODULE=on
+build:
+	@go build $(LDFLAGS) -o asset-price-oracle-adapter
 
-build: gomod
-	@go build $(LDFLAGS) -o asset-price-cl-ea
-
-install: gomod
+install:
 	@go install $(LDFLAGS)
 
 docker:
