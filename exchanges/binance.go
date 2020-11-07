@@ -53,6 +53,6 @@ func (exc *Binance) RefreshPairs() error {
 func (exc *Binance) GetConfig() *Config {
 	return &Config{
 		Name:    "Binance",
-		BaseURL: "https://www.binance.com/api/v1",
+		BaseURL: "https://www.binance.com/api/v3",
 	}
 }
