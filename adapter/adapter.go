@@ -8,7 +8,7 @@ import (
 	"sync"
 	"time"
 
-	connector "github.com/Dominator008/asset-price-oracle-adapter/exchanges"
+	connector "github.com/DODOEX/oracle-adapter/exchanges"
 	log "github.com/sirupsen/logrus"
 	"gopkg.in/guregu/null.v3"
 )

@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/Dominator008/asset-price-oracle-adapter/adapter"
-	"github.com/Dominator008/asset-price-oracle-adapter/bridge"
+	"github.com/DODOEX/oracle-adapter/adapter"
+	"github.com/DODOEX/oracle-adapter/bridge"
 )
 
 func main() {

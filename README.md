@@ -1,4 +1,4 @@
-# Asset Price External Adaptor
+# Chainlink oracle external adaptor
 
 External Adaptor for Chainlink which aggregates prices of crypto assets from multiple exchanges
 based on a weighted average of their volume.
@@ -31,7 +31,7 @@ make build
 Then run the adaptor:
 
 ```sh
-./asset-price-oracle-adapter -p <port> -t <tickerInterval>
+./oracle-adapter -p <port> -t <tickerInterval>
 ```
 
 ##### Arguments
@@ -45,7 +45,7 @@ Then run the adaptor:
 To run the container:
 
 ```sh
-docker run -it -p 8080:8080 -e PORT=8080 Dominator008/asset-price-oracle-adapter
+docker run -it -p 8080:8080 -e PORT=8080 DODOEX/oracle-adapter
 ```
 
 Container also supports passing in CLI arguments.

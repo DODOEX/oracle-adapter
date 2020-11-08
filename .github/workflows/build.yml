@@ -6,7 +6,7 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     container:
-      image: golang:1.13.8
+      image: golang:1.15.4
     steps:
       - uses: actions/checkout@master
       - run: go get

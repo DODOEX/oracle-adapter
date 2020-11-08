@@ -3,7 +3,7 @@ package adapter
 import (
 	"net/http"
 
-	"github.com/Dominator008/asset-price-oracle-adapter/bridge"
+	"github.com/DODOEX/oracle-adapter/bridge"
 )
 
 type AssetPrice struct{}

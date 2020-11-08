@@ -1,11 +1,11 @@
 .DEFAULT_GOAL := build
 .PHONY: build install docker dockerpush
 
-REPO=Dominator008/asset-price-oracle-adapter
-LDFLAGS=-ldflags "-X github.com/Dominator008/asset-price-oracle-adapter/store.Sha=`git rev-parse HEAD`"
+REPO=DODOEX/oracle-adapter
+LDFLAGS=-ldflags "-X github.com/DODOEX/oracle-adapter/store.Sha=`git rev-parse HEAD`"
 
 build:
-	@go build $(LDFLAGS) -o asset-price-oracle-adapter
+	@go build $(LDFLAGS) -o oracle-adapter
 
 install:
 	@go install $(LDFLAGS)

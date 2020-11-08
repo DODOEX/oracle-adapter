@@ -3,7 +3,7 @@
 *.dll
 *.so
 *.dylib
-asset-price-oracle-adapter
+oracle-adapter
 
 # Test binary, build with `go test -c`
 *.test
