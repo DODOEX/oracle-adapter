@@ -8,7 +8,7 @@ import (
 	"sync"
 	"time"
 
-	connector "github.com/DODOEX/oracle-adapter/exchanges"
+	"github.com/DODOEX/oracle-adapter/connector"
 	log "github.com/sirupsen/logrus"
 	"gopkg.in/guregu/null.v3"
 )
